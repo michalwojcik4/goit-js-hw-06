@@ -19,5 +19,5 @@ const gallery = document.querySelector('.gallery');
 //gallery.style.display = 'flex';
 //gallery.style.gap = '10px';
 //gallery.style.justifyContent = 'center';
-const addImageToGallery = images.map((image) =>  `<li><img url='${image.url}' alt='${image.alt}'/></li>`).join('');
+const addImageToGallery = images.map((image) =>  `<li><img src='${image.url}' alt='${image.alt}' width='300px' height='200px'/></li>`).join('');
 gallery.insertAdjacentHTML("beforeend", addImageToGallery);

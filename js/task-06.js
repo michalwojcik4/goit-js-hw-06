@@ -1,14 +1,13 @@
 const input = document.querySelector('#validation-input');
-const minInuptLength = input.dataset.length;
+const inuptLength = input.dataset.length;
 
-const validation = (e) => {
-    const value = e.currentTarget.value;
-    if(value.length < minInuptLength){
-        input.classList.add('invalid')
-        input.classList.remove('valid')
-    }else{
+function validation(e){
+    if(parseInt(input.value.length) === parseInt(inuptLength)){
         input.classList.add('valid')
         input.classList.remove('invalid')
+    }else{
+        input.classList.add('invalid')
+        input.classList.remove('valid')
     }
 }
 
