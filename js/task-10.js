@@ -9,22 +9,29 @@ const btnCreate = document.querySelector('#controls button[data-create]');
 const btnDestory = document.querySelector('#controls button[data-destroy]');
 const area = document.querySelector('#boxes');
 
-console.log(btnDestory)
+
 btnCreate.addEventListener('click', createBoxes);
 
 function createBoxes(amount){
   amount = input.value;
-
-  for(let i = 0; i < amount; i++){
-  const addedDiv = document.createElement("div");
-  
-  area.append(addedDiv)
+ if(amount > 100){
+    return alert('Możesz utworzyć maksymalnie 100 kwadratów');
+   }else{
+    area.innerHTML = '';
+    let sizeW = 20;
+    let sizeH = 20;
+    for(let i = 0; i < amount; i++){
+     const addedDiv = document.createElement("div");
+     addedDiv.style.backgroundColor = getRandomHexColor();
+     addedDiv.style.width = `${sizeW += 10}px`;
+     addedDiv.style.height = `${sizeH += 10}px`;
+     area.append(addedDiv);
+    }
   }
 }
 
 btnDestory.addEventListener('click', destroyBoxes);
 
 function destroyBoxes(){
-  const childrenArea = area.childNodes;
-  childrenArea.remove();
+  area.innerHTML = '';
 }
